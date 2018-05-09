@@ -5,10 +5,11 @@ import time
 from creds import username
 from creds import password
 
+mail = imaplib.IMAP4_SSL("imap.gmail.com")
+mail.login(username, password)
+
 while(True):
-    time.sleep(60)
-    mail = imaplib.IMAP4_SSL("imap.gmail.com")
-    mail.login(username, password)
+    time.sleep(10)
 
     mail.select("inbox")
 
@@ -43,7 +44,7 @@ while(True):
                 # filename
                 payload = part.get_payload()
                 if "plain" in content_type and "alert.uw.edu" in payload:
-                    print(part.get_payload())
+                    print(payload)
         # if no unread emails, continue loop
         else:
             continue
