@@ -12,10 +12,10 @@ async def uw_alert():
         try:
             async with aiohttp.get('http://127.0.0.1:5000/') as r:
                 if r.status == 200:
-                    alert = "true"
+                    alert = r
+                    await client.send_message(channel, alert)
         except:
             pass
-        await client.send_message(channel, alert)
         await asyncio.sleep(10) # task runs every 10 seconds
 
 @client.event
