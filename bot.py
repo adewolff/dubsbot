@@ -1,13 +1,14 @@
 import discord
 import asyncio
 import aiohttp
-from botkey import botkey
+from setup import botkey
+from setup import channelid
 
 client = discord.Client()
 
 async def uw_alert():
     await client.wait_until_ready()
-    channel = discord.Object(id='440958281624584204')
+    channel = discord.Object(id= channelid)
     while not client.is_closed:
         try:
             async with aiohttp.get('http://127.0.0.1:5000/') as r:

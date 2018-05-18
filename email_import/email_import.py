@@ -5,8 +5,9 @@ import asyncio
 import time
 from creds import username
 from creds import password
+from creds import imap_server
 
-mail = imaplib.IMAP4_SSL("imap.gmail.com")
+mail = imaplib.IMAP4_SSL(imap_server)
 mail.login(username, password)
 
 app = Flask(__name__)
