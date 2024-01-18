@@ -1,4 +1,4 @@
 aiohttp==1.0.5
-Flask==1.0.2
+Flask==3.0.1
 flask_restful==0.3.6
 discord==0.16.12
